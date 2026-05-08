@@ -1,6 +1,6 @@
 package org.example;
 
-public class CuentaAhorros extends CuentaBancaria{
+public class CuentaAhorros extends CuentaBancaria implements ICuenta{
 
     private double porcentajeInteres;
 
@@ -13,6 +13,7 @@ public class CuentaAhorros extends CuentaBancaria{
     public String retirarSaldo(double montoRetirar) {
         if (montoRetirar>=10000 && montoRetirar<= this.saldo){
             this.saldo = this.saldo - montoRetirar;
+            this.historial = this.historial+"Se retiro "+montoRetirar+" pesos\n";
             return "Se retiró "+montoRetirar+" pesos, el saldo actual es "+this.saldo;
 
         }else {
@@ -23,5 +24,10 @@ public class CuentaAhorros extends CuentaBancaria{
     public String agregarInteres(){
         this.saldo = this.saldo + (this.saldo * this.porcentajeInteres);
         return "El nuevo saldo de la cuenta es "+ this.saldo + " pesos";
+    }
+
+    @Override
+    public String consultarMovimientos() {
+        return "El saldo actual es "+this.saldo+"\n"+this.historial;
     }
 }

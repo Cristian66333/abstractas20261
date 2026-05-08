@@ -1,7 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Application {
 
@@ -17,5 +17,10 @@ public class Application {
         System.out.println(cuentas.get(1).retirarSaldo(3000000));
 
         System.out.println(((CuentaAhorros)cuentas.get(0)).agregarInteres());
+
+        ICuenta cuentaAhorros = new CuentaAhorros("123",50000);
+        System.out.println(cuentaAhorros.consultarMovimientos());
+        System.out.println(((CuentaAhorros)cuentaAhorros).retirarSaldo(30000));
+        System.out.println(cuentaAhorros.consultarMovimientos());
     }
 }
