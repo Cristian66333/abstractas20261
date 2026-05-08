@@ -15,5 +15,7 @@ public class Application {
         System.out.println(cuentas.get(0).retirarSaldo(60000));
         System.out.println(cuentas.get(1).retirarSaldo(2000000));
         System.out.println(cuentas.get(1).retirarSaldo(3000000));
+
+        System.out.println(((CuentaAhorros)cuentas.get(0)).agregarInteres());
     }
 }
